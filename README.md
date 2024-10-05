@@ -26,6 +26,12 @@ Day 45–46: Implement advanced monitoring and alerting strategies using Prometh
 
 * Large-Scale Monitoring: For large infrastructures with many Prometheus instances, Thanos is perfect for scaling up and centralizing your monitoring solution.
 
+## How to run:
+Go to bucket.yml configure your S3 bucket.
+```
+docker-compose up
+```
+
 ## Author
 This project was implemented by [Lucas de Queiroz dos Reis][2]. It is based on the Day 23–24: Automate multi-environment setups using Terraform and Ansible dynamic inventories from the [100 Days System Design for DevOps and Cloud Engineers][1].
 
