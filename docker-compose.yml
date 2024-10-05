@@ -1,0 +1,25 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  thanos-sidecar:
+    image: thanosio/thanos:v0.30.2
+    command: sidecar --prometheus.url=http://prometheus:9090
+    restart: always
+    ports:
+      - "10901:10901"
+    depends_on:
+      - prometheus
+
+
+
+  example-service:
+    image: python:3.8-alpine
+    command: >
+      sh -c "pip install prometheus_client && python -m http.server 8000"
+    ports:
+      - "8000:8000"
